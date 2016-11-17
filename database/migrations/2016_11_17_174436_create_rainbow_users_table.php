@@ -13,8 +13,11 @@ class CreateRainbowUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('rainbowUsers', function (Blueprint $table) {
+        Schema::create('rainbow_users', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->integer('color');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateRainbowUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rainbowUsers');
+        Schema::dropIfExists('rainbow_users');
     }
 }
