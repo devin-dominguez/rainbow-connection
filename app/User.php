@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
   protected $fillable = ['first_name', 'last_name', 'color'];
-  protected $hidden = ['pivot'];
+  protected $hidden = ['pivot', 'created_at', 'updated_at'];
 
   public static $rules = [
     'first_name' => 'required|min:3|max:80|Alpha',
