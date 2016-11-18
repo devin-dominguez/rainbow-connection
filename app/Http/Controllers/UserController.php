@@ -15,8 +15,10 @@ class UserController extends Controller {
 
   public function index(Request $request) {
     $page = User::with('friends')->paginate(50)->toArray();
+    $totalPages = ceil($page['total'] / $page['per_page']);
     return response()->json([
       'meta' => [
+        'total_pages' => $totalPages,
         'total' => $page['total'],
         'per_page' => $page['per_page'],
         'current_page' => $page['current_page'],
@@ -98,10 +100,14 @@ class UserController extends Controller {
     $friendsCount = array_fill(0, $userCount, 0);
 
     // semi-wonky connection generator
-    $friendChance = 25;
+    // In theory everybody can get between 0 an 50 friends
+    // In practice they generally don't get that many
+
+    $friendChance = 66;
 
     for ($i = 0; $i < $userCount; $i++) {
-      while ($friendsCount[$i] < $maxFriends && rand(0, 100) < $friendChance) {
+      $target = rand(0, $maxFriends);
+      while ($friendsCount[$i] < $target && rand(0, 100) < $friendChance) {
         $friendIdx = rand(0, $userCount - 1);
         if ($i != $friendIdx && $friendsCount[$friendIdx] < $maxFriends) {
           $friendsCount[$friendIdx]++;
@@ -112,6 +118,6 @@ class UserController extends Controller {
       }
     }
 
-    return redirect()->action('UserController@index');
+    return response(null, 200);
   }
 }

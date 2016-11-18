@@ -1,0 +1,23 @@
+.userview {
+  color: $brightGray;
+
+  &-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+    text-transform: uppercase;
+  }
+
+  &-color-title {
+    margin: 15px;
+    text-align: center;
+    font-size: 28px;
+    text-transform: capitalize;
+  }
+
+  &-friends-title {
+    margin: 10px;
+    text-align: center;
+    font-size: 20px;
+  }
+}

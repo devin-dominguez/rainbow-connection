@@ -1,0 +1,28 @@
+.header {
+  background: $darkGray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-title {
+    margin: 20px;
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.footer {
+  background: $darkGray;
+  text-align: center;
+  padding: 10px;
+
+  &-text {
+    color: $lightGray;
+    font-size: 10px;
+  }
+}

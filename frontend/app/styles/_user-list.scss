@@ -1,0 +1,43 @@
+.userlist {
+  margin: 0 auto;
+  min-width: 480px;
+  text-align: center;
+  color: #cde;
+
+  &-headers {
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $brightGray;;
+
+    &-item {
+      padding-bottom: 10px;
+    }
+  }
+
+  &-row {
+    font-size: 16px;
+    border-top: 1px solid $lightGray;
+  }
+
+  &-cell {
+    padding: 10px;
+    vertical-align: middle;
+  }
+
+  &-user, &-friend {
+    color: $brightGray;
+  }
+
+  &-color {
+    text-transform: capitalize;
+  }
+
+  &-friends {
+    font-size: 10px;
+    &-item {
+      margin: 5px 0;
+    }
+  }
+}
