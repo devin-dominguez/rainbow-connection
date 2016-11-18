@@ -17,8 +17,8 @@ use Illuminate\Http\Request;
     //return $request->user();
 //})->middleware('auth:api');
 
-Route::resource('users', 'RainbowUserController', ['only' => [
+Route::resource('users', 'UserController', ['only' => [
   'index', 'store', 'show', 'update', 'destroy'
 ]]);
 
-Route::post('/testdata', 'RainbowUserController@testdata');
+Route::post('/testdata', 'UserController@testdata');
