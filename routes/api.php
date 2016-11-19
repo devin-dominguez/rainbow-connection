@@ -22,3 +22,4 @@ Route::resource('users', 'UserController', ['only' => [
 ]]);
 
 Route::post('/testdata', 'UserController@testdata');
+Route::post('/users/{user_id}/unfriend', 'UserController@unfriend');

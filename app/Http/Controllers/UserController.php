@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use \Illuminate\Database\Eloquent\Factory;
 
+use Log;
+
 class UserController extends Controller {
 
   public function __construct() {
@@ -49,27 +51,19 @@ class UserController extends Controller {
 
   public function update(Request $request, $id) {
     $user = User::find($id);
+
     if (!$user) {
       return response()->json([
         'error' => 'user not found'
       ], 404);
     }
 
-    $this->validate($request, User::$rules);
+    $user->fill($request->toArray()['user']);
+    $user->save();
 
-    $friendsToAdd = User::findMany($request->addFriends);
-    forEach ($friendsToAdd as $friend) {
-    $user->addFriend($friend);
-    }
-
-    $friendsToRemove = User::findMany($request->removeFriends);
-    forEach ($friendsToRemove as $friend) {
-    $user->removeFriend($friend);
-    }
-
-    $user->fill($request->all())->save();
-
-    return response(null, 200);
+    return response()->json([
+      'user' => $user
+    ]);
   }
 
   public function destroy($id) {
@@ -119,5 +113,25 @@ class UserController extends Controller {
     }
 
     return response(null, 200);
+  }
+
+  public function unfriend(Request $request, $id) {
+    $user = User::find($id);
+    if (!$user) {
+      return response()->json([
+        'error' => 'user not found'
+      ], 404);
+    }
+
+    $friend = User::find($request->friend_id);
+    if (!$friend) {
+      return response()->json([
+        'error' => 'friend not found'
+      ], 404);
+    }
+
+    $user->removeFriend($friend);
+
+    return response($user, 200);
   }
 }

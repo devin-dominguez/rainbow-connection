@@ -1,0 +1,11 @@
+<h1 class="color-picker-title">
+  Enjoys <span class="color-picker-color {{colors user.color}}" {{action "toggleMenu"}}>{{colors user.color}}</span>
+</h1>
+
+<ul class="color-picker-menu {{if open "active"}}">
+  {{#each (range 0 12) as |cNum|}}
+    <li class="color-picker-swatch {{colors cNum}}" {{action "pickColor" cNum user}}>{{colors cNum}}</li>
+  {{/each}}
+</ul>
+
+{{yield}}

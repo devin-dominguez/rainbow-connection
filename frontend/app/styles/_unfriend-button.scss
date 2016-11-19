@@ -1,0 +1,19 @@
+.unfriend {
+  display: inline-block;
+  margin-right: 15px;
+
+  &-button {
+    border-radius: 4px;
+    background: $vermillion;
+    color: $lightGray;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 250ms;
+
+    &:hover {
+      background: $red;
+    }
+  }
+}

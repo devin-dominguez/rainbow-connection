@@ -1,1 +1,10 @@
-{{yield}}
+{{#each friends as |friend|}}
+  <li class="friend-list-item">
+    {{#if unfriendable}}
+      {{#unfriend-button friendId=friend.id user=user}}{{/unfriend-button}}
+    {{/if}}
+    {{#link-to 'user' friend.id class="friend-list-friend"}}
+      {{friend.first_name}} {{friend.last_name}}
+    {{/link-to}}
+  </li>
+{{/each}}

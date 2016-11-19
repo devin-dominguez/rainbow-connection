@@ -8,22 +8,14 @@
     <tr class="userlist-row">
       <td class="userlist-cell">
         {{#link-to 'user' user class="userlist-user"}}
-          {{user.first_name}} {{user.last_name}}
+          {{user.firstName}} {{user.lastName}}
         {{/link-to}}
       </td>
       <td class="userlist-cell userlist-color {{colors user.color}}">
         {{colors user.color}}
       </td>
       <td class="userlist-cell">
-        <ul class="userlist-friends">
-          {{#each user.friends as |friend|}}
-            <li class="userlist-friends-item">
-              {{#link-to 'user' friend.id class="userlist-friend"}}
-                {{friend.first_name}} {{friend.last_name}}
-              {{/link-to}}
-            </li>
-          {{/each}}
-        </ul>
+        {{#friend-list friends=user.friends}}{{/friend-list}}
       </td>
     </tr>
   {{/each}}

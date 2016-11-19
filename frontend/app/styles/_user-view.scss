@@ -8,16 +8,25 @@
     text-transform: uppercase;
   }
 
-  &-color-title {
-    margin: 15px;
+  &-friends-title {
+    margin: 24px;
     text-align: center;
-    font-size: 28px;
+    font-size: 20px;
     text-transform: capitalize;
   }
 
-  &-friends-title {
-    margin: 10px;
-    text-align: center;
-    font-size: 20px;
+  text-align: center;
+
+  .friend-list {
+    display: inline-block;
+    width: 320px;
+    &-item {
+      text-align: left;
+      margin: 4px;
+    }
+    &-friend {
+      color: $brightGray;
+      font-size: 28px;
+    }
   }
 }

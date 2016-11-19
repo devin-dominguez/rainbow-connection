@@ -1,16 +1,12 @@
 <div class="userview">
-  <h1 class="userview-title">{{model.first_name}} {{model.last_name}}</h1>
-  <h2 class="userview-color-title">enjoys <span class="userview-color {{colors model.color}}">{{colors model.color}}</span></h2>
+  <h1 class="userview-title">{{model.firstName}} {{model.lastName}}</h1>
+  {{#color-picker user=model}}{{/color-picker}}
   {{#if model.friends}}
-    <h2 class="userview-friends-title">and has the following friends</h2>
-    <ul class="userview-friends-list">
-      {{#each model.friends as |friend|}}
-        <li class="userview-friends-item">{{friend.first_name}} {{friend.last_name}}</li>
-      {{/each}}
-    </ul>
-    {{else}}
-      <h2 class="userview-friends-title">and has no friends :(</h2>
-    {{/if}}
+    <h2 class="userview-friends-title">and has some friends:</h2>
+    {{#friend-list friends=model.friends unfriendable=true user=model}}{{/friend-list}}
+  {{else}}
+    <h2 class="userview-friends-title">and has no friends :(</h2>
+  {{/if}}
 
 </div>
 {{outlet}}

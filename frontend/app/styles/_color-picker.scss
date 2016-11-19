@@ -1,0 +1,38 @@
+.color-picker {
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &-title {
+    font-size: 32px;
+    text-transform: capitalize;
+  }
+
+  &-color {
+    cursor: pointer;
+  }
+
+  &-menu {
+    border-radius: 4px;
+    top: 32px;
+    position: absolute;
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+
+  &-swatch {
+    text-align: center;
+    font-size: 24px;
+    padding: 4px 32px;
+    background: $darkGray;
+    transition: background 150ms;
+    cursor: pointer;
+    &:hover {
+      background: $darkGray * 1.25;
+    }
+  }
+
+}

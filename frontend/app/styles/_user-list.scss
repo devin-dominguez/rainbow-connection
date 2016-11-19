@@ -26,7 +26,7 @@
     vertical-align: middle;
   }
 
-  &-user, &-friend {
+  &-user {
     color: $brightGray;
   }
 
@@ -34,10 +34,13 @@
     text-transform: capitalize;
   }
 
-  &-friends {
+  .friend-list {
     font-size: 10px;
     &-item {
       margin: 5px 0;
+    }
+    &-friend {
+      color: $brightGray;
     }
   }
 }
