@@ -15,6 +15,7 @@
 - `cd frontend`
 - `npm install`
 - `bower install`
+- Set the host in `frontend/app/adapters/application.js` to wherever you are serving Laravel from
 - `ember serve`
 - Navigate to `localhost:4200` or wherever you are serving Ember from.
 
