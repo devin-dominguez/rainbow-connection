@@ -6,10 +6,10 @@ export default DS.Model.extend({
   color: DS.attr('number'),
   friends: DS.attr(),
 
-  unfriend(friendId, callback) {
+  unfriend(friendId) {
     let modelName = this.constructor.modelName;
     let adapter = this.store.adapterFor(modelName);
-    return adapter.unfriend(this.get('id'), friendId, (resp) => {
+    return adapter.unfriend(this.get('id'), friendId, () => {
       this.reload();
     });
   }
